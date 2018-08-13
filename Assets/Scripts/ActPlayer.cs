@@ -9,10 +9,15 @@ public class ActPlayer : MonoBehaviour {
 	/// </summary>
 
 	private bool canJump;
+    private bool tap;
+    private bool swipeLeft;
+    private bool swipeRight;
 
 	private float speed;
 
 	private Vector2 jumpSpeed;
+    private Vector2 startTouch;
+    private Vector2 swipeDelta;
 
 	private Rigidbody2D rb;
 
@@ -40,6 +45,28 @@ public class ActPlayer : MonoBehaviour {
 			jumpSpeed = value;
 		}
 	}
+    public Vector2 SwipeDeta
+    {
+        get
+        {
+            return swipeDelta;
+        }
+    }
+
+    public bool SwipeLeft
+    {
+        get
+        {
+            return swipeLeft;
+        }
+    }
+    public bool SwipeRight
+    {
+        get
+        {
+            return swipeRight;
+        }
+    }
 
 
 	void Start()
@@ -67,11 +94,7 @@ public class ActPlayer : MonoBehaviour {
 	{
 		if(canJump == true)
 		{
-			if (Input.GetMouseButtonDown(0))
-			{
-				rb.AddForce(jumpSpeed, ForceMode2D.Impulse);
-				canJump = false;
-			}
+			
 		}
 	}
 
