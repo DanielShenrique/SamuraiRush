@@ -4,23 +4,38 @@ using UnityEngine;
 
 public class Swipe : MonoBehaviour {
 
-   /* public ActPlayer act;
+   public ActPlayer act;
 
     private GameObject player;
 
-    private Vector3 position;
+    private Vector2 position;
 
+    //private Vector2 
 	void Start () {
 
 		player = GameObject.FindWithTag("Player");
     }
 	
 	void Update () {
-        if (act.SwipeLeft)
-            position += Vector3.left;
-        if (act.SwipeRight)
-            position += Vector3.right;
+        position = new Vector2(transform.position.x, transform.position.y);
 
-        player.GetComponent<Transform>().position = Vector2.MoveTowards(player.GetComponent<Transform>().position, position, 5f * Time.deltaTime);
-    }*/
+        if (act.SwipeLeft)
+        {
+            position += Vector2.left * act.Speed;
+            Debug.Log(position);
+        }
+        if (act.SwipeRight)
+        {
+            position += Vector2.right * act.Speed;
+            Debug.Log(position);
+        }
+
+
+        player.GetComponent<Transform>().position = Vector2.MoveTowards(player.GetComponent<Transform>().position, position, act.Speed * Time.deltaTime);
+
+        if (act.Tap)
+        {
+            Debug.Log("tap");
+        }
+    }
 }

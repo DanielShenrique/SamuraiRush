@@ -12,6 +12,7 @@ public class ActPlayer : MonoBehaviour {
     private bool tap;
     private bool swipeLeft;
     private bool swipeRight;
+    private bool isDraging;
 
 	private float speed;
 
@@ -67,13 +68,22 @@ public class ActPlayer : MonoBehaviour {
             return swipeRight;
         }
     }
+    public bool Tap
+    {
+        get
+        {
+            return tap;
+        }
+    }
+
 
 
 	void Start()
 	{
 		canJump = true;
+        isDraging = false;
 
-		speed = 5f;
+		speed = 50f;
 
 		jumpSpeed = Vector2.up * 10f;
 
@@ -82,7 +92,7 @@ public class ActPlayer : MonoBehaviour {
 
 	void Update()//usando normalmente
 	{
-		
+        tap = swipeLeft = swipeRight = false;
 	}
 
 	void FixedUpdate()//usando RB
@@ -90,15 +100,82 @@ public class ActPlayer : MonoBehaviour {
 		Basicfunction();
 	}
 
+    void Reset()//usando para resetar as funções ... dahhh
+    {
+        startTouch = swipeDelta = Vector2.zero;
+        isDraging = false;
+    }
+
 	void Basicfunction()
 	{
-		if(canJump == true)
-		{
-			
-		}
-	}
+        if (Input.GetMouseButtonDown(0))
+            {
+                tap = true;
+                isDraging = true;
+                startTouch = Input.mousePosition;
+            }
+        else if(Input.GetMouseButtonUp(0))
+            {
+                isDraging = false;
+                Reset();
+            }
 
-	private void OnCollisionEnter2D(Collision2D coll)
+        ///
+
+        if (Input.touches.Length > 0)
+        {
+            if (Input.touches[0].phase == TouchPhase.Began)
+            {
+                isDraging = true;
+                tap = true;
+                startTouch = Input.touches[0].position;
+            }
+            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+            {
+                isDraging = false;
+                Reset();
+            }
+        }
+
+        ///
+
+        swipeDelta = Vector2.zero;
+        if(isDraging)
+        {
+            if(Input.touches.Length > 0)
+            {
+                swipeDelta = Input.touches[0].position - startTouch;
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                swipeDelta = (Vector2)Input.mousePosition - startTouch;
+            }
+        }
+
+        ///
+
+        if(swipeDelta.magnitude > 125)
+        {
+            float x = swipeDelta.x;
+            float y = swipeDelta.y;
+
+            if(Mathf.Abs(x) > Mathf.Abs(y))
+            {
+                if(x < 0)
+                {
+                    swipeLeft = true;
+                }
+                else
+                {
+                    swipeRight = true;
+                }
+            }
+
+            Reset();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag.Equals("Ground"))
 		{
