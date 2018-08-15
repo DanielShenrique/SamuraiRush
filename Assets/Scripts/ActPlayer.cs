@@ -13,6 +13,7 @@ public class ActPlayer : MonoBehaviour {
     private int limiar;
 
     private Vector2 jumpSpeed;
+    private Vector2 dash;
 
     private Vector3 mouse;
 
@@ -29,6 +30,7 @@ public class ActPlayer : MonoBehaviour {
         speed = 10f;
 
         jumpSpeed = Vector2.up * speed;
+        dash = Vector2.right * speed;
 
         canJump = true;
     }
@@ -42,7 +44,6 @@ public class ActPlayer : MonoBehaviour {
 
     void Update()
     {
-
     }
 
     void FixedUpdate()
@@ -57,7 +58,7 @@ public class ActPlayer : MonoBehaviour {
            mouse = Input.mousePosition; 
 
            Invoke("RealJump", 0.05f);
-           Invoke("Swipe", 0.1f);
+           Invoke("Swipe", 0.05f);
        }
     }
 
@@ -80,8 +81,13 @@ public class ActPlayer : MonoBehaviour {
     {
         if(Input.mousePosition.x - mouse.x >= limiar)
         {
-           
+            rb.AddForce(dash, ForceMode2D.Impulse);
         }
+    }
+
+    void BackToPosition()
+    {
+        
     }
 
     void OnCollisionEnter2D(Collision2D coll)
