@@ -17,11 +17,14 @@ public class ActPlayer : MonoBehaviour {
 
     private Vector3 mouse;
 
+    private Animator animator;
+
     private Rigidbody2D rb;
 
     private bool canJump;
 
     public float Speed { get { return speed; } set { speed = value; } }
+
     public Vector2 JumpSpeed { get { return jumpSpeed; } set { jumpSpeed = value; } }
 
 
@@ -40,6 +43,8 @@ public class ActPlayer : MonoBehaviour {
         limiar = Screen.width / 6;
 
         rb = GetComponent<Rigidbody2D>();
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -55,6 +60,7 @@ public class ActPlayer : MonoBehaviour {
     {
        if (Input.GetMouseButtonDown(0))
        {
+           
            mouse = Input.mousePosition; 
 
            Invoke("RealJump", 0.05f);
@@ -68,9 +74,11 @@ public class ActPlayer : MonoBehaviour {
         {
             if (Input.GetMouseButton(0))
             {
+                
                 if (Input.mousePosition.x - mouse.x < limiar)
                 {
                     rb.AddForce(jumpSpeed, ForceMode2D.Impulse);
+                    print("u");
                     canJump = false;
                 }
             }
@@ -81,20 +89,26 @@ public class ActPlayer : MonoBehaviour {
     {
         if(Input.mousePosition.x - mouse.x >= limiar)
         {
-            rb.AddForce(dash, ForceMode2D.Impulse);
+            animator.SetBool("isDashing", true);
         }
     }
 
-    void BackToPosition()
+    void EndAnimation()
     {
-        
+        animator.SetBool("isDashing", false);
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+      
         if (coll.gameObject.tag.Equals("Ground"))
         {
             canJump = true;
+        }
+
+        if (coll.gameObject.tag.Equals("Points"))
+        {
+            Debug.Log("AEEEEE");
         }
     }
 }
