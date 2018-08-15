@@ -4,182 +4,91 @@ using UnityEngine;
 
 public class ActPlayer : MonoBehaviour {
 
-	/// <summary>
-	/// This is a mobile Game; Daniel não invente de fazer nada que fuja disso, ok ? ok, estamos combinados.
-	/// </summary>
+    /// <summary>
+    /// Daniel esse é o script do player.
+    /// </summary>
 
-	private bool canJump;
-    private bool tap;
-    private bool swipeLeft;
-    private bool swipeRight;
-    private bool isDraging;
+    private float speed;
 
-	private float speed;
+    private int limiar;
 
-	private Vector2 jumpSpeed;
-    private Vector2 startTouch;
-    private Vector2 swipeDelta;
+    private Vector2 jumpSpeed;
 
-	private Rigidbody2D rb;
+    private Vector3 mouse;
 
-	
-	public float Speed
-	{
-		get
-		{
-			return speed;
-		}
-		set
-		{
-			speed = value;
-		}
-	}
+    private Rigidbody2D rb;
 
-	public Vector2 JumpSpeed
-	{
-		get
-		{
-			return jumpSpeed;
-		}
-		set
-		{
-			jumpSpeed = value;
-		}
-	}
-    public Vector2 SwipeDeta
+    private bool canJump;
+
+    public float Speed { get { return speed; } set { speed = value; } }
+    public Vector2 JumpSpeed { get { return jumpSpeed; } set { jumpSpeed = value; } }
+
+
+    void Awake()
     {
-        get
-        {
-            return swipeDelta;
-        }
+        speed = 10f;
+
+        jumpSpeed = Vector2.up * speed;
+
+        canJump = true;
     }
 
-    public bool SwipeLeft
+    void Start()
     {
-        get
-        {
-            return swipeLeft;
-        }
-    }
-    public bool SwipeRight
-    {
-        get
-        {
-            return swipeRight;
-        }
-    }
-    public bool Tap
-    {
-        get
-        {
-            return tap;
-        }
+        limiar = Screen.width / 6;
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
-
-
-	void Start()
-	{
-		canJump = true;
-        isDraging = false;
-
-		speed = 50f;
-
-		jumpSpeed = Vector2.up * 10f;
-
-		rb = GetComponent<Rigidbody2D>();
-	}
-
-	void Update()//usando normalmente
-	{
-        tap = swipeLeft = swipeRight = false;
-	}
-
-	void FixedUpdate()//usando RB
-	{
-		Basicfunction();
-	}
-
-    void Reset()//usando para resetar as funções ... dahhh
+    void Update()
     {
-        startTouch = swipeDelta = Vector2.zero;
-        isDraging = false;
+
     }
 
-	void Basicfunction()
-	{
-        if (Input.GetMouseButtonDown(0))
-            {
-                tap = true;
-                isDraging = true;
-                startTouch = Input.mousePosition;
-            }
-        else if(Input.GetMouseButtonUp(0))
-            {
-                isDraging = false;
-                Reset();
-            }
+    void FixedUpdate()
+    {
+        BasicFunction();
+    }
 
-        ///
+    void BasicFunction()
+    {
+       if (Input.GetMouseButtonDown(0))
+       {
+           mouse = Input.mousePosition; 
 
-        if (Input.touches.Length > 0)
+           Invoke("RealJump", 0.05f);
+           Invoke("Swipe", 0.1f);
+       }
+    }
+
+    void RealJump()
+    {
+        if (canJump)
         {
-            if (Input.touches[0].phase == TouchPhase.Began)
+            if (Input.GetMouseButton(0))
             {
-                isDraging = true;
-                tap = true;
-                startTouch = Input.touches[0].position;
-            }
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-            {
-                isDraging = false;
-                Reset();
-            }
-        }
-
-        ///
-
-        swipeDelta = Vector2.zero;
-        if(isDraging)
-        {
-            if(Input.touches.Length > 0)
-            {
-                swipeDelta = Input.touches[0].position - startTouch;
-            }
-            else if (Input.GetMouseButton(0))
-            {
-                swipeDelta = (Vector2)Input.mousePosition - startTouch;
-            }
-        }
-
-        ///
-
-        if(swipeDelta.magnitude > 125)
-        {
-            float x = swipeDelta.x;
-            float y = swipeDelta.y;
-
-            if(Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                if(x < 0)
+                if (Input.mousePosition.x - mouse.x < limiar)
                 {
-                    swipeLeft = true;
-                }
-                else
-                {
-                    swipeRight = true;
+                    rb.AddForce(jumpSpeed, ForceMode2D.Impulse);
+                    canJump = false;
                 }
             }
-
-            Reset();
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D coll)
-	{
-		if (coll.gameObject.tag.Equals("Ground"))
-		{
-			canJump = true;
-		}
-	}
+    void Swipe()
+    {
+        if(Input.mousePosition.x - mouse.x >= limiar)
+        {
+           
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag.Equals("Ground"))
+        {
+            canJump = true;
+        }
+    }
 }
