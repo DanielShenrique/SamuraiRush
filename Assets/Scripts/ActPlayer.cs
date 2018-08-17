@@ -40,7 +40,7 @@ public class ActPlayer : MonoBehaviour {
 
     void Start()
     {
-        limiar = Screen.width / 6;
+        limiar = Screen.width / 8;
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -74,11 +74,9 @@ public class ActPlayer : MonoBehaviour {
         {
             if (Input.GetMouseButton(0))
             {
-                
                 if (Input.mousePosition.x - mouse.x < limiar)
                 {
                     rb.AddForce(jumpSpeed, ForceMode2D.Impulse);
-                    print("u");
                     canJump = false;
                 }
             }
