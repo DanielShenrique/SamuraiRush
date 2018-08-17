@@ -40,7 +40,7 @@ public class ActPlayer : MonoBehaviour {
 
     void Start()
     {
-        limiar = Screen.width / 8;
+        limiar = Screen.width / 10;
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -76,7 +76,7 @@ public class ActPlayer : MonoBehaviour {
             {
                 if (Input.mousePosition.x - mouse.x < limiar)
                 {
-                    rb.AddForce(jumpSpeed, ForceMode2D.Impulse);
+                    animator.SetBool("isJumping", true);
                     canJump = false;
                 }
             }
@@ -91,10 +91,17 @@ public class ActPlayer : MonoBehaviour {
         }
     }
 
+    #region EndAnims
     void EndAnimation()
     {
         animator.SetBool("isDashing", false);
     }
+
+    void EndAnimationJump()
+    {
+        animator.SetBool("isJumping", false);
+    }
+    #endregion
 
     void OnCollisionEnter2D(Collision2D coll)
     {
