@@ -8,12 +8,7 @@ public class ActPlayer : MonoBehaviour {
     /// Daniel esse é o script do player.
     /// </summary>
 
-    private float speed;
-
     private int limiar;
-
-    private Vector2 jumpSpeed;
-    private Vector2 dash;
 
     private Vector3 mouse;
 
@@ -23,18 +18,8 @@ public class ActPlayer : MonoBehaviour {
 
     private bool canJump;
 
-    public float Speed { get { return speed; } set { speed = value; } }
-
-    public Vector2 JumpSpeed { get { return jumpSpeed; } set { jumpSpeed = value; } }
-
-
     void Awake()
     {
-        speed = 10f;
-
-        jumpSpeed = Vector2.up * speed;
-        dash = Vector2.right * speed;
-
         canJump = true;
     }
 
@@ -109,6 +94,7 @@ public class ActPlayer : MonoBehaviour {
         if (coll.gameObject.tag.Equals("Ground"))
         {
             canJump = true;
+			print("aee");
         }
 
         if (coll.gameObject.tag.Equals("Points"))
