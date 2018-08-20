@@ -12,7 +12,7 @@ public class ActPlayer : MonoBehaviour {
 
     private Vector3 mouse;
 
-    private Animator animator;
+    public Animator animator;
 
     private Rigidbody2D rb;
 
@@ -96,7 +96,6 @@ public class ActPlayer : MonoBehaviour {
         if (coll.gameObject.tag.Equals("Ground"))
         {
             canJump = true;
-			print("aee");
         }
 
         if (coll.gameObject.tag.Equals("Points"))

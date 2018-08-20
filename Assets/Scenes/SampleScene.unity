@@ -191,10 +191,10 @@ RectTransform:
   m_Father: {fileID: 801692413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.8, y: -50}
-  m_SizeDelta: {x: 180, y: 100}
+  m_AnchorMin: {x: 0.011875001, y: 1}
+  m_AnchorMax: {x: 0.011875001, y: 1}
+  m_AnchoredPosition: {x: 496, y: -50}
+  m_SizeDelta: {x: 985, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348701281
 MonoBehaviour:
@@ -222,7 +222,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 160
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86d96902ab34434da8ffc757cfdcdc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!95 &944660613
 Animator:
   serializedVersion: 3
@@ -818,7 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8088f52e052964995ebfecf0e7aa1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
   sprites:
   - {fileID: 1186901454}
   - {fileID: 1245580546}
