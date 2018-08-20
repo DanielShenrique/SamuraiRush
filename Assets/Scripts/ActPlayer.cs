@@ -30,6 +30,8 @@ public class ActPlayer : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
+
+        //animator.speed = 1.5f;
     }
 
     void Update()
