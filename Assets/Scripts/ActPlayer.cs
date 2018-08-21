@@ -30,8 +30,6 @@ public class ActPlayer : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
-
-        //animator.speed = 1.5f;
     }
 
     void Update()
@@ -41,6 +39,11 @@ public class ActPlayer : MonoBehaviour {
     void FixedUpdate()
     {
         BasicFunction();
+    }
+
+    private void LateUpdate()
+    {
+        
     }
 
     void BasicFunction()
@@ -53,6 +56,11 @@ public class ActPlayer : MonoBehaviour {
            Invoke("RealJump", 0.05f);
            Invoke("Swipe", 0.05f);
        }
+        /*if (Input.GetMouseButtonDown(1))
+        {
+            animator.SetBool("jumpDash", true);
+            print("aeeeee");
+        }*/
     }
 
     void RealJump()

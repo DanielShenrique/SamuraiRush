@@ -32,37 +32,42 @@ public class Points : MonoBehaviour {
         /// teste
         num++;
         text.text = num.ToString();
+
+        if(num == 1000)
+        {
+            num *= 2;
+        }
         ///
 
 
         ///teste da velocidade da animação
         if(num == 1000)
         {
-            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.1f;
-            ground.GetComponent<Scrolling_Parallax>().speed = 21f;
-            print(actAnimator.GetComponent<ActPlayer>().animator.speed);
+            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.01f;
+            //ground.GetComponent<Scrolling_Parallax>().speed = 21f;
+            //print(actAnimator.GetComponent<ActPlayer>().animator.speed);
         }
         if(num == 2000)
         {
-            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.2f;
-            ground.GetComponent<Scrolling_Parallax>().speed = 22f;
-            print(actAnimator.GetComponent<ActPlayer>().animator.speed);
+            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.015f;
+           // ground.GetComponent<Scrolling_Parallax>().speed = 22f;
+           // print(actAnimator.GetComponent<ActPlayer>().animator.speed);
         }
         if (num == 4000)
         {
-            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.3f;
-            ground.GetComponent<Scrolling_Parallax>().speed = 23f;
-            print(actAnimator.GetComponent<ActPlayer>().animator.speed);
+            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.02f;
+            //ground.GetComponent<Scrolling_Parallax>().speed = 23f;
+            //print(actAnimator.GetComponent<ActPlayer>().animator.speed);
         }
         if (num == 8000)
         {
-            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.4f;
-            print(actAnimator.GetComponent<ActPlayer>().animator.speed);
+            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.025f;
+           // print(actAnimator.GetComponent<ActPlayer>().animator.speed);
         }
         if (num == 10000)
         {
-            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.5f;
-            print(actAnimator.GetComponent<ActPlayer>().animator.speed);
+            actAnimator.GetComponent<ActPlayer>().animator.speed = 1.03f;
+            //print(actAnimator.GetComponent<ActPlayer>().animator.speed);
         }
         ///
     }
