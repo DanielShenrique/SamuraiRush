@@ -44,13 +44,13 @@ public class Points : MonoBehaviour {
         if(num == 1000)
         {
             actAnimator.GetComponent<ActPlayer>().animator.speed = 1.01f;
-            //ground.GetComponent<Scrolling_Parallax>().speed = 21f;
+           // ground.GetComponent<Scrolling_Parallax>().speed = 21f;
             //print(actAnimator.GetComponent<ActPlayer>().animator.speed);
         }
         if(num == 2000)
         {
             actAnimator.GetComponent<ActPlayer>().animator.speed = 1.015f;
-           // ground.GetComponent<Scrolling_Parallax>().speed = 22f;
+            //ground.GetComponent<Scrolling_Parallax>().speed = 22f;
            // print(actAnimator.GetComponent<ActPlayer>().animator.speed);
         }
         if (num == 4000)
