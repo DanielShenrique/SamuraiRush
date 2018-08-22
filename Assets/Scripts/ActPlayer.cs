@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActPlayer : MonoBehaviour {
 
     /// <summary>
-    /// Daniel esse é o script do player.
+    /// Daniel esse é o script do player. Luiz é Ziul
     /// </summary>
 
     private int limiar;
@@ -56,13 +56,9 @@ public class ActPlayer : MonoBehaviour {
            Invoke("RealJump", 0.05f);
            Invoke("Swipe", 0.05f);
        }
-        /*if (Input.GetMouseButtonDown(1))
-        {
-            animator.SetBool("jumpDash", true);
-            print("aeeeee");
-        }*/
     }
 
+    #region fuctionsBases
     void RealJump()
     {
         if (canJump)
@@ -85,6 +81,8 @@ public class ActPlayer : MonoBehaviour {
             animator.SetBool("isDashing", true);
         }
     }
+
+    #endregion
 
     #region EndAnims
     void EndAnimation()
