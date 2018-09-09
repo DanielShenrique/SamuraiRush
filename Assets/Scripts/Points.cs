@@ -9,7 +9,7 @@ public class Points : MonoBehaviour {
     /// Pontos, so atualizar, mais tarde usar JSON ou Player.Prefs
     /// </summary>
 
-    private int num;
+    public int num;
 
     public Text text;
 

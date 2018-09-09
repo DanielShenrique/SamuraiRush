@@ -97,16 +97,16 @@ public class ActPlayer : MonoBehaviour {
     #endregion
 
     void OnCollisionEnter2D(Collision2D coll)
-    {
-      
+    {   
         if (coll.gameObject.tag.Equals("Ground"))
         {
             canJump = true;
         }
 
-        if (coll.gameObject.tag.Equals("Points"))
+        if (coll.gameObject.tag.Equals("Barrel"))
         {
-            Debug.Log("AEEEEE");
+			Debug.Log("Aeeee");
+			Destroy(this.gameObject);
         }
     }
 }
