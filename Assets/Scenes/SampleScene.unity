@@ -528,10 +528,9 @@ GameObject:
   m_Component:
   - component: {fileID: 944660609}
   - component: {fileID: 944660608}
-  - component: {fileID: 944660611}
   - component: {fileID: 944660610}
-  - component: {fileID: 944660612}
   - component: {fileID: 944660613}
+  - component: {fileID: 944660611}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -591,7 +590,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 944660607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: -3.732, z: 0}
+  m_LocalPosition: {x: -7, y: -3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -622,27 +621,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7, y: 1.8}
   m_EdgeRadius: 0
---- !u!50 &944660611
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 944660607}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &944660612
+--- !u!114 &944660611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -650,10 +629,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 944660607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b86d96902ab34434da8ffc757cfdcdc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d86db36b12e390438985ef5b8e3523c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!95 &944660613
 Animator:
   serializedVersion: 3
@@ -695,8 +673,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1186901452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.927, y: 0, z: 0}
-  m_LocalScale: {x: 23.294533, y: 10, z: 1}
+  m_LocalPosition: {x: 22.16, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1470738415}
   m_RootOrder: 0
@@ -736,8 +714,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 585c245a59af1784294a88f4d56bbb2e, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300002, guid: 5bf27a64ab745124f8267235d82027fa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -769,8 +747,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245580544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.176, y: 0, z: 0}
-  m_LocalScale: {x: 21.431324, y: 10, z: 1}
+  m_LocalPosition: {x: -1.14, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1470738415}
   m_RootOrder: 1
@@ -810,8 +788,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 585c245a59af1784294a88f4d56bbb2e, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300002, guid: 5bf27a64ab745124f8267235d82027fa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -866,6 +844,8 @@ MonoBehaviour:
   sprites:
   - {fileID: 1186901454}
   - {fileID: 1245580546}
+  - {fileID: 0}
+  - {fileID: 0}
   dir: 0
 --- !u!1 &1578724321
 GameObject:
