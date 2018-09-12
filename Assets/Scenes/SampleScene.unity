@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &76849649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,8 +201,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 1578724322}
   - {fileID: 1693190143}
-  - {fileID: 0}
-  dir: 1
+  dir: 0
 --- !u!1 &348701279
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +530,7 @@ GameObject:
   - component: {fileID: 944660608}
   - component: {fileID: 944660610}
   - component: {fileID: 944660613}
+  - component: {fileID: 944660611}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -621,6 +621,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7, y: 1.8}
   m_EdgeRadius: 0
+--- !u!114 &944660611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944660607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86d96902ab34434da8ffc757cfdcdc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!95 &944660613
 Animator:
   serializedVersion: 3
@@ -1044,7 +1056,7 @@ GameObject:
   - component: {fileID: 1935023890}
   - component: {fileID: 1935023889}
   m_Layer: 0
-  m_Name: ceu
+  m_Name: Sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1103,7 +1115,7 @@ Transform:
   m_GameObject: {fileID: 1935023888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.914, y: 0.818, z: 0}
-  m_LocalScale: {x: 1.4094214, y: 1.4094214, z: 1.4094214}
+  m_LocalScale: {x: 1.4094214, y: 1.4094214, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2

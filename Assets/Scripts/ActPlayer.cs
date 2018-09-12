@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ActPlayer : MonoBehaviour {
 
-    /// <summary>
-    /// Daniel esse é o script do player. Luiz é Ziul
-    /// </summary>
+	/// <summary>
+	/// Daniel esse é o script do player. Luiz é Ziul
+	/// </summary>
 
+	private string state;
+	
     private int limiar;
 
     private Vector3 mouse;
@@ -34,27 +36,43 @@ public class ActPlayer : MonoBehaviour {
 
     void Update()
     {
-    }
+		BasicFunction();
 
-    void FixedUpdate()
-    {
-        BasicFunction();
-    }
+		switch (state)
+		{
+			case "up":
+				if (transform.position.y < 0.5f)
+				{
+					transform.position = new Vector2(transform.position.x, transform.position.y + 0.7f);
+				}
+				else
+				{
+					state = "down";
+				}
+				break;
 
-    private void LateUpdate()
-    {
-        
+			/*case "down":
+				if (transform.position.y >= -3.7f)
+				{
+					transform.position = new Vector2(transform.position.x, transform.position.y - 0.35f);
+				}
+				else
+				{
+					state = "stopped";
+				}
+				break;*/
+		}
     }
 
     void BasicFunction()
     {
        if (Input.GetMouseButtonDown(0))
        {
-           
-           mouse = Input.mousePosition; 
+			mouse = Input.mousePosition;
 
-           Invoke("RealJump", 0.05f);
-           Invoke("Swipe", 0.05f);
+			Invoke("RealJump", 0.05f);
+			Invoke("Swipe", 0.05f);
+
        }
     }
 
@@ -67,8 +85,9 @@ public class ActPlayer : MonoBehaviour {
             {
                 if (Input.mousePosition.x - mouse.x < limiar)
                 {
-                    animator.SetBool("isJumping", true);
+                    //animator.SetBool("isJumping", true);
                     canJump = false;
+					state = "up";		
                 }
             }
         }
@@ -78,7 +97,7 @@ public class ActPlayer : MonoBehaviour {
     {
         if(Input.mousePosition.x - mouse.x >= limiar)
         {
-            animator.SetBool("isDashing", true);
+            //animator.SetBool("isDashing", true);
         }
     }
 
@@ -101,6 +120,7 @@ public class ActPlayer : MonoBehaviour {
         if (coll.gameObject.tag.Equals("Ground"))
         {
             canJump = true;
+			print("touch");
         }
 
         if (coll.gameObject.tag.Equals("Barrel"))
