@@ -51,7 +51,7 @@ public class ActPlayer : MonoBehaviour {
 				}
 				break;
 
-			/*case "down":
+			case "down":
 				if (transform.position.y >= -3.7f)
 				{
 					transform.position = new Vector2(transform.position.x, transform.position.y - 0.35f);
@@ -60,7 +60,7 @@ public class ActPlayer : MonoBehaviour {
 				{
 					state = "stopped";
 				}
-				break;*/
+				break;
 		}
     }
 
@@ -85,7 +85,6 @@ public class ActPlayer : MonoBehaviour {
             {
                 if (Input.mousePosition.x - mouse.x < limiar)
                 {
-                    //animator.SetBool("isJumping", true);
                     canJump = false;
 					state = "up";		
                 }
@@ -97,14 +96,15 @@ public class ActPlayer : MonoBehaviour {
     {
         if(Input.mousePosition.x - mouse.x >= limiar)
         {
-            //animator.SetBool("isDashing", true);
+			state = "dash";
         }
     }
 
     #endregion
 
     #region EndAnims
-    void EndAnimation()
+
+    void EndAnimationDash()
     {
         animator.SetBool("isDashing", false);
     }
@@ -120,12 +120,10 @@ public class ActPlayer : MonoBehaviour {
         if (coll.gameObject.tag.Equals("Ground"))
         {
             canJump = true;
-			print("touch");
         }
 
         if (coll.gameObject.tag.Equals("Barrel"))
         {
-			Debug.Log("Aeeee");
 			Destroy(this.gameObject);
         }
     }
