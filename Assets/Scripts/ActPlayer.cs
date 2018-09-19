@@ -43,7 +43,7 @@ public class ActPlayer : MonoBehaviour {
 			case "up":
 				if (transform.position.y < 0.5f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y + 0.7f);
+					transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
 				}
 				else
 				{
@@ -61,6 +61,27 @@ public class ActPlayer : MonoBehaviour {
 					state = "stopped";
 				}
 				break;
+
+            case "dashGo":
+                if(transform.position.x < 2.7f)
+                {
+                    transform.position = new Vector2(transform.position.x + 0.7f, transform.position.y);
+                }
+                else
+                {
+                    state = "dashBack";
+                }
+                break;
+            case "dashBack":
+                if(transform.position.x > 2.7f)
+                {
+                    transform.position = new Vector2(transform.position.x - 0.7f, transform.position.y);
+                }
+                else
+                {
+                    state = "stopped";
+                }
+                break;
 		}
     }
 
@@ -96,7 +117,7 @@ public class ActPlayer : MonoBehaviour {
     {
         if(Input.mousePosition.x - mouse.x >= limiar)
         {
-			state = "dash";
+			state = "dashGo";
         }
     }
 
