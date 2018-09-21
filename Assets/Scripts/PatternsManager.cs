@@ -12,16 +12,24 @@ public class PatternsManager : MonoBehaviour {
 
     void Start()
     {
-        /*foreach (Transform[] child in transform)
+        foreach (Transform child in transform)
         {
 
             int randomChild = Random.Range(1, 3);
 
-            child[randomChild].GetComponent<PatternsManager>().canDestroy = true;
+;
+            if (randomChild == 3)
+            {
+                child.GetComponent<PatternsManager>().canDestroy = true;
+                Debug.Log(child.GetComponent<PatternsManager>().canDestroy = true);
+            }
+            //child[randomChild - 1].GetComponent<PatternsManager>().canDestroy = true;
 
-            Debug.Log(child[randomChild].GetComponent<PatternsManager>().canDestroy);
+            //Debug.Log(child[randomChild].GetComponent<PatternsManager>().canDestroy);
 
-        }*/
+            break;
+        }
+
     }
 
     void Update()
