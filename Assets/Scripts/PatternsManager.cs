@@ -7,7 +7,6 @@ public class PatternsManager : MonoBehaviour {
 
     public bool desaparece = false;
     public float speed;
-
     public bool canDestroy;
 
     void Start()
