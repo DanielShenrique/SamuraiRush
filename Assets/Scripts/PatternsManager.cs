@@ -13,20 +13,7 @@ public class PatternsManager : MonoBehaviour {
     {
         foreach (Transform child in transform)
         {
-
-            int randomChild = Random.Range(1, 3);
-
-;
-            if (randomChild == 3)
-            {
-                child.GetComponent<PatternsManager>().canDestroy = true;
-                Debug.Log(child.GetComponent<PatternsManager>().canDestroy = true);
-            }
-            //child[randomChild - 1].GetComponent<PatternsManager>().canDestroy = true;
-
-            //Debug.Log(child[randomChild].GetComponent<PatternsManager>().canDestroy);
-
-            break;
+            //fazer com que possa ser destruido :S
         }
 
     }
