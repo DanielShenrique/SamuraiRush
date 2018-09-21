@@ -5,7 +5,7 @@ using UnityEngine;
 public class PatternsScript : MonoBehaviour {
 
 
-    public GameObject Patter;
+    public GameObject[] Patter;
     float randomy;
     Vector2 Qualquerlocal;
     public float SpawnRate;
@@ -20,10 +20,13 @@ public class PatternsScript : MonoBehaviour {
     void Update () {
         if(Time.time > NextSpawn)
         {
+            int r = Random.Range(1, 3);
+
             NextSpawn = Time.time + SpawnRate;
             randomy = Random.Range(33.7f, 14.9f);
             Qualquerlocal = new Vector2(randomy, transform.position.y);
-            Instantiate(Patter, Qualquerlocal, Quaternion.identity);
+
+            Instantiate(Patter[r -1], Qualquerlocal, Quaternion.identity);
         }
 	}
     

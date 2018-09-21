@@ -3,9 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PatternsManager : MonoBehaviour {
+
+
     public bool desaparece = false;
     public float speed;
 
+    public bool canDestroy;
+
+    void Start()
+    {
+        /*foreach (Transform[] child in transform)
+        {
+
+            int randomChild = Random.Range(1, 3);
+
+            child[randomChild].GetComponent<PatternsManager>().canDestroy = true;
+
+            Debug.Log(child[randomChild].GetComponent<PatternsManager>().canDestroy);
+
+        }*/
+    }
 
     void Update()
     {

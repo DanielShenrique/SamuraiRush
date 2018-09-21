@@ -123,12 +123,12 @@ GameObject:
   - component: {fileID: 76849650}
   - component: {fileID: 76849649}
   m_Layer: 0
-  m_Name: PatternManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &76849649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd926e36eddf8540b9a3c79fec81c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Patter: {fileID: 1259320349274916, guid: cb928cecf1e21e3488a3a7e660502e1d, type: 2}
+  Patter:
+  - {fileID: 1259320349274916, guid: cb928cecf1e21e3488a3a7e660502e1d, type: 2}
+  - {fileID: 1199737625937970, guid: ef152277a2e96b7418b8dcfadd086e38, type: 2}
   SpawnRate: 5
 --- !u!4 &76849650
 Transform:
@@ -184,7 +186,7 @@ Transform:
   - {fileID: 1578724323}
   - {fileID: 1693190145}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &92996708
 MonoBehaviour:
@@ -849,7 +851,7 @@ Transform:
   - {fileID: 1186901453}
   - {fileID: 1245580545}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1470738416
 MonoBehaviour:
@@ -1061,7 +1063,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1693190142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.95, y: -4.25, z: 0}
+  m_LocalPosition: {x: 17.88, y: -4.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 92996707}

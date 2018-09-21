@@ -38,7 +38,7 @@ public class ActPlayer : MonoBehaviour {
     {
 		BasicFunction();
 
-		switch (state)
+		/*switch (state)
 		{
 			case "up":
 				if (transform.position.y < 0.5f)
@@ -82,7 +82,7 @@ public class ActPlayer : MonoBehaviour {
                     state = "stopped";
                 }
                 break;
-		}
+		}*/
     }
 
     void BasicFunction()
