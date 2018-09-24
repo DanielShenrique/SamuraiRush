@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatternsManager : MonoBehaviour {
+public class CoinManager : MonoBehaviour {
 
 
     public bool desaparece = false;
-    public float speed;
+    private float speed;
     public bool canDestroy;
 
     void Start()
     {
-
+        speed = Random.Range(5f, 10f);
     }
 
     void Update()

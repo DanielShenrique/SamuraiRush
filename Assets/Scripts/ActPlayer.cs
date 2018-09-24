@@ -9,16 +9,16 @@ public class ActPlayer : MonoBehaviour {
 	/// </summary>
 
 	private string state;
-	
     private int limiar;
+    private bool canJump;
+
+    private Rigidbody2D rb;
 
     private Vector3 mouse;
 
     public Animator animator;
 
-    private Rigidbody2D rb;
-
-    private bool canJump;
+    private Points point;
 
     void Awake()
     {
@@ -32,6 +32,8 @@ public class ActPlayer : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
+
+        point = GameObject.FindGameObjectWithTag("Points").GetComponent<Points>();
     }
 
     void Update()
@@ -145,7 +147,17 @@ public class ActPlayer : MonoBehaviour {
 
         if (coll.gameObject.tag.Equals("Barrel"))
         {
+            if(coll.transform.gameObject.GetComponent<DestroyPettern>().GetCanDestroy())
+            {
+                point.num += 100;
+            }
+
 			Destroy(this.gameObject);
+        }
+        if (coll.gameObject.tag.Equals("Coin"))
+        {
+            point.num += 500;
+            Destroy(coll.gameObject);
         }
     }
 }

@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4125384311013880}
   - component: {fileID: 212762709752658794}
   - component: {fileID: 61016502704152388}
+  - component: {fileID: 114064245811589498}
   m_Layer: 0
   m_Name: 3
   m_TagString: Barrel
@@ -54,6 +55,7 @@ GameObject:
   - component: {fileID: 4712428092281578}
   - component: {fileID: 212949371544277118}
   - component: {fileID: 61573281021483712}
+  - component: {fileID: 114454092191615802}
   m_Layer: 0
   m_Name: 2
   m_TagString: Barrel
@@ -71,6 +73,7 @@ GameObject:
   - component: {fileID: 4401920224239244}
   - component: {fileID: 212921453750603338}
   - component: {fileID: 61468461517508022}
+  - component: {fileID: 114548780657711886}
   m_Layer: 0
   m_Name: 1
   m_TagString: Barrel
@@ -208,6 +211,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114064245811589498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716985009520368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c6456f187820844956bf1c34b13476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114271280778079554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,6 +235,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desaparece: 0
   speed: 15
+  canDestroy: 0
+--- !u!114 &114454092191615802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830340670268196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c6456f187820844956bf1c34b13476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114548780657711886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952589914929262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c6456f187820844956bf1c34b13476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212762709752658794
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -17,9 +17,6 @@ public class Points : MonoBehaviour {
     private GameObject ground;
     private GameObject background;
 
-    public int Num { get { return num; } set { num = value; } }
-
-
 
     void Start()
     {
