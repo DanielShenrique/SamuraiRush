@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desaparece: 0
-  speed: 15
+  speed: 7.5
   canDestroy: 0
 --- !u!114 &114454092191615802
 MonoBehaviour:

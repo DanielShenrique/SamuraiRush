@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desaparece: 0
-  speed: 10
+  speed: 5
   canDestroy: 0
 --- !u!212 &212282988848403048
 SpriteRenderer:

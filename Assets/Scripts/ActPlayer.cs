@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ActPlayer : MonoBehaviour {
 
@@ -9,8 +10,11 @@ public class ActPlayer : MonoBehaviour {
 	/// </summary>
 
 	private string state;
+
     private int limiar;
+
     private bool canJump;
+    private bool canDestroyObject;
 
     private Rigidbody2D rb;
 
@@ -40,12 +44,12 @@ public class ActPlayer : MonoBehaviour {
     {
 		BasicFunction();
 
-		/*switch (state)
+		switch (state)
 		{
 			case "up":
 				if (transform.position.y < 0.5f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y + 0.5f);
+					transform.position = new Vector2(transform.position.x, transform.position.y + 0.2f);
 				}
 				else
 				{
@@ -56,7 +60,7 @@ public class ActPlayer : MonoBehaviour {
 			case "down":
 				if (transform.position.y >= -3.7f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y - 0.35f);
+					transform.position = new Vector2(transform.position.x, transform.position.y - 0.125f);
 				}
 				else
 				{
@@ -64,10 +68,12 @@ public class ActPlayer : MonoBehaviour {
 				}
 				break;
 
+
             case "dashGo":
-                if(transform.position.x < 2.7f)
+                if(transform.position.x <= 2f)
                 {
                     transform.position = new Vector2(transform.position.x + 0.7f, transform.position.y);
+                    canDestroyObject = true;
                 }
                 else
                 {
@@ -75,16 +81,26 @@ public class ActPlayer : MonoBehaviour {
                 }
                 break;
             case "dashBack":
-                if(transform.position.x > 2.7f)
+                if(transform.position.x >= -7f)
                 {
                     transform.position = new Vector2(transform.position.x - 0.7f, transform.position.y);
                 }
                 else
                 {
-                    state = "stopped";
+                    if(transform.position.y > -3.7)
+                    {
+                        state = "down";
+                    }
+                    else
+                    {
+                        state = "stopped";
+                    }
+                    canDestroyObject = false;
                 }
                 break;
-		}*/
+		}
+
+        print(canDestroyObject);
     }
 
     void BasicFunction()
@@ -153,6 +169,8 @@ public class ActPlayer : MonoBehaviour {
             }
 
 			Destroy(this.gameObject);
+            SceneManager.LoadScene(1);
+            
         }
         if (coll.gameObject.tag.Equals("Coin"))
         {
