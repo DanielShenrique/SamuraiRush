@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4482087962214552}
   - component: {fileID: 212638133676287950}
   m_Layer: 0
-  m_Name: Immortal
+  m_Name: PowerUp
   m_TagString: Immortal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

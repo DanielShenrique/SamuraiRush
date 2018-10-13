@@ -204,6 +204,7 @@ public class ActPlayer : MonoBehaviour {
             }
 
         }
+
         if (coll.gameObject.tag.Equals("Coin"))
         {
             point.num += 500;
