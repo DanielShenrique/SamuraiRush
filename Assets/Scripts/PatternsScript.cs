@@ -7,26 +7,20 @@ public class PatternsScript : MonoBehaviour {
 
     public GameObject[] Patter;
     float randomy;
-    Vector2 Qualquerlocal;
-    public float SpawnRate;
-    float NextSpawn;
+    Vector2 qualquerLugar;
+    public float spawnRate;
+    float nextSpawn;
    
-    // Use this for initialization
-    void Start()
-    {
-        
-    }
-    // Update is called once per frame
     void Update () {
-        if(Time.time > NextSpawn)
+        if(Time.time > nextSpawn)
         {
-            int r = Random.Range(1, 3);
+            int r = Random.Range(1, 4);
 
-            NextSpawn = Time.time + SpawnRate;
+            nextSpawn = Time.time + spawnRate;
             randomy = Random.Range(33.7f, 14.9f);
-            Qualquerlocal = new Vector2(randomy, transform.position.y);
+            qualquerLugar = new Vector2(randomy, transform.position.y);
 
-            Instantiate(Patter[r -1], Qualquerlocal, Quaternion.identity);
+            Instantiate(Patter[r -1], qualquerLugar, Quaternion.identity);
         }
 	}
     

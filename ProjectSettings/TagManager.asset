@@ -9,6 +9,7 @@ TagManager:
   - Points
   - Barrel
   - Coin
+  - Immortal
   layers:
   - Default
   - TransparentFX

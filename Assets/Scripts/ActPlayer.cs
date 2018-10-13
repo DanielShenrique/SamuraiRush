@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ActPlayer : MonoBehaviour {
 
-	/// <summary>
-	/// Daniel esse é o script do player. Luiz é Ziul
-	/// </summary>
+    /// <summary>
+    /// Daniel esse é o script do player. Luiz é Ziul
+    /// </summary>
 
-	private string state;
+    private string state;
 
     private int limiar;
 
@@ -23,6 +21,9 @@ public class ActPlayer : MonoBehaviour {
     public Animator animator;
 
     private Points point;
+
+    public GameObject MenuScored;
+    public GameObject HighScored;
 
     void Awake()
     {
@@ -60,11 +61,19 @@ public class ActPlayer : MonoBehaviour {
 			case "down":
 				if (transform.position.y >= -3.7f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y - 0.125f);
+					transform.position = new Vector2(transform.position.x, transform.position.y - 0.25f);
 				}
 				else
 				{
-					state = "stopped";
+                    if (transform.position.x > -7f)
+                    {
+                        state = "dashBack";
+                    }
+                    else
+                    {
+                        state = "stopped";
+                    }
+
 				}
 				break;
 
@@ -74,10 +83,16 @@ public class ActPlayer : MonoBehaviour {
                 {
                     transform.position = new Vector2(transform.position.x + 0.7f, transform.position.y);
                     canDestroyObject = true;
+                    //Alterei isso
+                    animator.SetBool("jumpDash", true);
+                    //A alteração acabou
                 }
                 else
                 {
                     state = "dashBack";
+                    //Alterei isso
+                    animator.SetBool("isDashing", false);
+                    //A alteração acabou
                 }
                 break;
             case "dashBack":
@@ -101,6 +116,12 @@ public class ActPlayer : MonoBehaviour {
 		}
 
         print(canDestroyObject);
+        //Alterei isso
+        if (canJump == true)
+        {
+            EndAnimationJump();
+        }
+        //A alteração acabou
     }
 
     void BasicFunction()
@@ -124,8 +145,12 @@ public class ActPlayer : MonoBehaviour {
             {
                 if (Input.mousePosition.x - mouse.x < limiar)
                 {
+                    //Alterei isso
+                    animator.SetBool("isJumping", true);
+                    //A alteração acabou
                     canJump = false;
-					state = "up";		
+					state = "up";	
+                    
                 }
             }
         }
@@ -135,7 +160,10 @@ public class ActPlayer : MonoBehaviour {
     {
         if(Input.mousePosition.x - mouse.x >= limiar)
         {
-			state = "dashGo";
+            //Alterei isso
+            animator.SetBool("isDashing", true);
+            //A alteração acabou
+            state = "dashGo";
         }
     }
 
@@ -163,14 +191,18 @@ public class ActPlayer : MonoBehaviour {
 
         if (coll.gameObject.tag.Equals("Barrel"))
         {
-            if(coll.transform.gameObject.GetComponent<DestroyPettern>().GetCanDestroy())
+            if(coll.transform.gameObject.GetComponent<DestroyPettern>().GetCanDestroy() && canDestroyObject == true)
             {
                 point.num += 100;
+                Destroy(coll.gameObject);
+            }
+            else
+            {
+                    Destroy(this.gameObject);
+                    MenuScored.SetActive(true);
+                    HighScored.SetActive(true);              
             }
 
-			Destroy(this.gameObject);
-            SceneManager.LoadScene(1);
-            
         }
         if (coll.gameObject.tag.Equals("Coin"))
         {
