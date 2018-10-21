@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: 65354b059acc489409250bb733e57b9a
+guid: 7ebb6cb237a850a4f891250e6530e914
 TextureImporter:
   fileIDToRecycleName:
-    21300000: itens_0
-    21300002: itens_1
-    21300004: itens_2
-    21300006: itens_3
-    21300008: itens_4
-    21300010: itens_5
+    21300000: Botao_0
+    21300002: Botao_1
+    21300004: Botao_2
+    21300006: Botao_3
+    21300008: Botao_4
+    21300010: Botao_5
+    21300012: Botao_6
+    21300014: Botao_7
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -88,13 +90,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: itens_0
+      name: Botao_0
       rect:
         serializedVersion: 2
-        x: 320
-        y: 1570
-        width: 230
-        height: 160
+        x: 0
+        y: 1450
+        width: 1490
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,19 +104,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85142420eadcef24e9e04e7d019f5083
+      spriteID: 7eb16491bc957dd4896fcea3bd0f7ed6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: itens_1
+      name: Botao_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 700
-        width: 390
-        height: 500
+        x: 0
+        y: 940
+        width: 1940
+        height: 410
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d80672f9364144408502cede4460a02
+      spriteID: 5ba58dc3b456c0942b29df24361cfdeb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: itens_2
+      name: Botao_2
       rect:
         serializedVersion: 2
-        x: 550
-        y: 610
-        width: 390
-        height: 590
+        x: 90
+        y: 590
+        width: 50
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,19 +144,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 248650d1406884247aea0b8f0ad91075
+      spriteID: 461fa2eb937b7ef4aa9df18376885d29
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: itens_3
+      name: Botao_3
       rect:
         serializedVersion: 2
-        x: 960
-        y: 610
-        width: 390
-        height: 590
+        x: 160
+        y: 580
+        width: 60
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b53e880b2efae314582d33a8d014201e
+      spriteID: 1052883aa10be9141a83ed87224ae265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: itens_4
+      name: Botao_4
       rect:
         serializedVersion: 2
-        x: 240
-        y: 610
-        width: 160
-        height: 70
+        x: 290
+        y: 620
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,19 +184,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94a76f2f60fdc81499055232410295a6
+      spriteID: 0eac070645c568a4dab8d8575bea09ed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: itens_5
+      name: Botao_5
       rect:
         serializedVersion: 2
-        x: 180
-        y: 230
-        width: 190
-        height: 170
+        x: 250
+        y: 570
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,7 +204,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98a539bd87bdaff41b098e470c33a6be
+      spriteID: 7bc10a9b208097645921015e9727ea08
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Botao_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 570
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d289436d22b0139459ad696b2427052b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Botao_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 1490
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ecfee9e9962ed04c931c9114605d3a8
       vertices: []
       indices: 
       edges: []
@@ -210,7 +252,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 36c0e9b5c554328448042f883cac4f9c
+    spriteID: 9b0756ced42fb344eaa65fe6977b6d3f
     vertices: []
     indices: 
     edges: []

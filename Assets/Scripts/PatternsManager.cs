@@ -50,7 +50,7 @@ public class PatternsManager : MonoBehaviour {
             }
         }
 
-        print(speed);
+        //print(speed);
     }
     IEnumerator Patterns()
     {

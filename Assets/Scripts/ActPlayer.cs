@@ -3,11 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class ActPlayer : MonoBehaviour {
 
-    /// <summary>
-    /// Daniel esse é o script do player. Luiz é Ziul
-    /// </summary>
+	/// <summary>
+	/// Daniel esse é o script do player. Luiz é Ziul
+	/// </summary>
 
-    private string state;
+	private string state;
 
     private int limiar;
 
@@ -24,6 +24,8 @@ public class ActPlayer : MonoBehaviour {
 
     public GameObject MenuScored;
     public GameObject HighScored;
+    public GameObject Restart;
+    public GameObject ClearHighscore;
 
     void Awake()
     {
@@ -32,7 +34,7 @@ public class ActPlayer : MonoBehaviour {
 
     void Start()
     {
-        limiar = Screen.width / 10;
+        limiar = Screen.width / 15;
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -50,7 +52,7 @@ public class ActPlayer : MonoBehaviour {
 			case "up":
 				if (transform.position.y < 0.5f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y + 0.2f);
+					transform.position = new Vector2(transform.position.x, transform.position.y + 0.25f);
 				}
 				else
 				{
@@ -61,7 +63,7 @@ public class ActPlayer : MonoBehaviour {
 			case "down":
 				if (transform.position.y >= -3.7f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y - 0.25f);
+					transform.position = new Vector2(transform.position.x, transform.position.y - 0.28f);
 				}
 				else
 				{
@@ -115,7 +117,7 @@ public class ActPlayer : MonoBehaviour {
                 break;
 		}
 
-        print(canDestroyObject);
+        //print(canDestroyObject);
         //Alterei isso
         if (canJump == true)
         {
@@ -198,13 +200,15 @@ public class ActPlayer : MonoBehaviour {
             }
             else
             {
-                    Destroy(this.gameObject);
-                    MenuScored.SetActive(true);
-                    HighScored.SetActive(true);              
+                GameObject.FindGameObjectWithTag("Points").GetComponent<Points>().SavePoints();
+                Destroy(this.gameObject);
+                MenuScored.SetActive(true);
+                HighScored.SetActive(true);
+                Restart.SetActive(true);
+                ClearHighscore.SetActive(true);
             }
 
         }
-
         if (coll.gameObject.tag.Equals("Coin"))
         {
             point.num += 500;

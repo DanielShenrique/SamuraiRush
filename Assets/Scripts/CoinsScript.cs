@@ -10,14 +10,14 @@ public class CoinsScript : MonoBehaviour {
     float randomy_x;
     float randomy_y;
     Vector2 place;
-    public float spwanRate;
-    float nextSpawn;
+    public float SpawnRate;
+    float NextSpawn;
 
     void Update()
     {
-        if (Time.time > nextSpawn)
+        if (Time.time > NextSpawn)
         {
-            nextSpawn = Time.time + spwanRate;
+            NextSpawn = Time.time + SpawnRate;
             randomy_x = Random.Range(33.7f, 14.9f);
             randomy_y = Random.Range(-2.6f, 2.2f);
             place = new Vector2(randomy_x, randomy_y);
