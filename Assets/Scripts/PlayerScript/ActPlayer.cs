@@ -41,13 +41,14 @@ public class ActPlayer : MonoBehaviour {
     void Update()
     {
 		BasicFunction();
+        MovementForPc();
 
 		switch (state)
 		{
 			case "up":
 				if (transform.position.y < 0.5f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y + 0.32f);
+					transform.position = new Vector2(transform.position.x, transform.position.y + 0.4f);
 				}
 				else
 				{
@@ -57,7 +58,7 @@ public class ActPlayer : MonoBehaviour {
 			case "down":
 				if (transform.position.y >= -3.7f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y - 0.34f);
+					transform.position = new Vector2(transform.position.x, transform.position.y - 0.42f);
 				}
 				else
 				{
@@ -114,14 +115,31 @@ public class ActPlayer : MonoBehaviour {
 
     }
 
+
+    void MovementForPc()
+    {
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            animator.SetBool("isDashing", true);
+            state = "dashGo";
+            canDash = false;
+        }
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            animator.SetBool("isJumping", true);
+            state = "up";
+            canJump = false;
+        }
+    }
+
     void BasicFunction()
     {
        if (Input.GetMouseButtonDown(0))
        {
 			mouse = Input.mousePosition;
 
-			Invoke("RealJump", 0.03f);
-			Invoke("Swipe", 0.05f);
+			Invoke("RealJump", 0.1f);
+			Invoke("Swipe", 0.1f);
 
        }
     }
@@ -131,16 +149,13 @@ public class ActPlayer : MonoBehaviour {
     {
         if (canJump)
         {
-            if (Input.GetMouseButton(0))
-            {
                 if (Input.mousePosition.x - mouse.x < divS)
                 {                
                     animator.SetBool("isJumping", true);
 					state = "up";	
                     canJump = false;
                     
-                }
-            }
+                }         
         }
     }
 

@@ -51,9 +51,6 @@ public class Points : MonoBehaviour
             text.text = num.ToString();
         }
         ApareceScore();
-
-        //SavePoints();
-
     }
     void ApareceScore()
     {

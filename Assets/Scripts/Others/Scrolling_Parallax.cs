@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Scrolling_Parallax : MonoBehaviour {
 
-    /// <summary>
-    /// Olá, esse script vai servir para alinhar as coisas, com o tempo e com os pontos que o player vai ganhar^^
-    /// </summary>
 
     public float speed = 1;
     public List<SpriteRenderer> sprites = new List<SpriteRenderer>();
@@ -16,8 +14,9 @@ public class Scrolling_Parallax : MonoBehaviour {
     private float heightCamera;
     private float widthCamera;
 
-    private Vector3 positionCam;
     private Camera cam;
+
+    public GameObject points;
 
     private void Awake()
     {
@@ -66,6 +65,7 @@ public class Scrolling_Parallax : MonoBehaviour {
         }
 
     }
+
 }
 
 public enum Direction
