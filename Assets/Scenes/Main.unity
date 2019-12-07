@@ -233,7 +233,6 @@ MonoBehaviour:
   - {fileID: 1578724322}
   - {fileID: 1693190143}
   dir: 0
-  points: {fileID: 348701279}
 --- !u!1 &269991498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186901452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.16, y: -2.74, z: 0}
+  m_LocalPosition: {x: 20.71, y: -2.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1470738415}
@@ -1321,7 +1320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245580544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.14, y: -2.74, z: 0}
+  m_LocalPosition: {x: -0.8, y: -2.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1470738415}
@@ -1426,7 +1425,6 @@ MonoBehaviour:
   - {fileID: 1186901454}
   - {fileID: 1245580546}
   dir: 0
-  points: {fileID: 348701279}
 --- !u!1 &1485085632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1475,6 @@ MonoBehaviour:
   - {fileID: 1935023889}
   - {fileID: 1960882022}
   dir: 0
-  points: {fileID: 348701279}
 --- !u!1 &1578724321
 GameObject:
   m_ObjectHideFlags: 0

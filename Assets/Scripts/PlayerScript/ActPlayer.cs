@@ -24,18 +24,16 @@ public class ActPlayer : MonoBehaviour {
 
     void Awake()
     {
-        canJump = true;
         animator = GetComponent<Animator>();
+        point = GameObject.FindGameObjectWithTag("Points").GetComponent<Points>();
+        divS = Screen.width / 100;
 
     }
 
     void Start()
-    {
-        divS = Screen.width / 100;
-
-        point = GameObject.FindGameObjectWithTag("Points").GetComponent<Points>();
-
+    {       
         canDash = true;
+        canJump = true;
     }
 
     void Update()
@@ -48,7 +46,7 @@ public class ActPlayer : MonoBehaviour {
 			case "up":
 				if (transform.position.y < 0.5f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y + 0.4f);
+					transform.position = new Vector2(transform.position.x, transform.position.y + 0.32f);
 				}
 				else
 				{
@@ -56,9 +54,9 @@ public class ActPlayer : MonoBehaviour {
 				}
 			break;
 			case "down":
-				if (transform.position.y >= -3.7f)
+				if (transform.position.y > -3.7f)
 				{
-					transform.position = new Vector2(transform.position.x, transform.position.y - 0.42f);
+					transform.position = new Vector2(transform.position.x, transform.position.y - 0.40f);
 				}
 				else
 				{
@@ -75,7 +73,7 @@ public class ActPlayer : MonoBehaviour {
 			break;
 
             case "dashGo":
-                if(transform.position.x <= 1.5f)
+                if(transform.position.x <= 0f)
                 {
                     transform.position = new Vector2(transform.position.x + 0.7f, transform.position.y);
                     canDestroyObject = true;
@@ -85,16 +83,18 @@ public class ActPlayer : MonoBehaviour {
                 {
                     state = "dashBack";
                     animator.SetBool("isDashing", false);
+                    animator.SetBool("jumpDash", false);
+
                 }
             break;
             case "dashBack":
-                if(transform.position.x >= -7f)
+                if(transform.position.x > -7f)
                 {
                     transform.position = new Vector2(transform.position.x - 0.7f, transform.position.y);
                 }
                 else
                 {
-                    if(transform.position.y > -3.7)
+                    if (transform.position.y > -3.7)
                     {
                         state = "down";
                     }
@@ -104,6 +104,7 @@ public class ActPlayer : MonoBehaviour {
                     }
                     canDestroyObject = false;
                     canDash = true;
+                    canJump = true;
                 }
             break;
 		}
@@ -112,26 +113,38 @@ public class ActPlayer : MonoBehaviour {
         {
             EndAnimationJump();
         }
+        if(canDash == true)
+        {
+            EndAnimationDash();
+        }
 
     }
 
 
     void MovementForPc()
     {
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (canDash == true)
         {
-            animator.SetBool("isDashing", true);
-            state = "dashGo";
-            canDash = false;
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                animator.SetBool("isDashing", true);
+                state = "dashGo";
+                canDash = false;
+                canJump = false;
+            }
         }
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (canJump == true)
         {
-            animator.SetBool("isJumping", true);
-            state = "up";
-            canJump = false;
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                animator.SetBool("isJumping", true);
+                state = "up";
+                canJump = false;
+            }
         }
     }
 
+    #region Movement For Android
     void BasicFunction()
     {
        if (Input.GetMouseButtonDown(0))
@@ -144,7 +157,6 @@ public class ActPlayer : MonoBehaviour {
        }
     }
 
-    #region fuctionsBases
     void RealJump()
     {
         if (canJump)
@@ -171,11 +183,9 @@ public class ActPlayer : MonoBehaviour {
             }
         }
     }
-
-    #endregion
+#endregion
 
     #region EndAnims
-
     void EndAnimationDash()
     {
         animator.SetBool("isDashing", false);

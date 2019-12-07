@@ -16,8 +16,6 @@ public class Scrolling_Parallax : MonoBehaviour {
 
     private Camera cam;
 
-    public GameObject points;
-
     private void Awake()
     {
         cam = Camera.main;
