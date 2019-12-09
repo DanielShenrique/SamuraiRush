@@ -9,9 +9,22 @@ public class CoinManager : MonoBehaviour {
     private float speed;
     public bool canDestroy;
 
+    public int coinVal;
+
+    private Points p;
+
+    private void Awake()
+    {
+        p = GameObject.FindGameObjectWithTag("Points").GetComponent<Points>();
+    }
+
     void Start()
     {
+        coinVal = 1;
+
         speed = Random.Range(5f, 10f);
+
+        ValueCoin();
     }
 
     void Update()
@@ -26,6 +39,23 @@ public class CoinManager : MonoBehaviour {
             }
         }
     }
+
+    public void ValueCoin()
+    {
+        if (p.num >= 2000 && p.num < 4000)
+        {
+            coinVal += coinVal;
+        }
+        if (p.num >= 4000 && p.num < 6000)
+        {
+            coinVal += coinVal;
+        }
+        if (p.num >= 6000 & p.num < 8000)
+        {
+            coinVal += coinVal;
+        }
+    }
+
     IEnumerator Patterns()
     {
         yield return new WaitForSeconds(4);

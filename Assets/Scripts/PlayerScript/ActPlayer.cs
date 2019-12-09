@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ActPlayer : MonoBehaviour {
+public class ActPlayer : MonoBehaviour
+{
 
 	private string state;
 
@@ -224,7 +225,6 @@ public class ActPlayer : MonoBehaviour {
         }
         if (coll.gameObject.tag.Equals("Coin"))
         {
-            point.num += 500;
             Destroy(coll.gameObject);
         }
     }
