@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class ActPlayer : MonoBehaviour
 {
-
 	private string state;
 
     private int divS;
@@ -20,11 +19,6 @@ public class ActPlayer : MonoBehaviour
 
     [SerializeField]
     private CoinManager coinM;
-
-    public GameObject MenuScored;
-    public GameObject HighScored;
-    public GameObject Restart;
-    public GameObject ClearHighscore;
 
     void Awake()
     {
@@ -218,12 +212,8 @@ public class ActPlayer : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Points").GetComponent<Points>().SavePoints();
                 Destroy(this.gameObject);
-                MenuScored.SetActive(true);
-                HighScored.SetActive(true);
-                Restart.SetActive(true);
-                ClearHighscore.SetActive(true);
+                
             }
-
         }
         if (coll.gameObject.tag.Equals("Coin"))
         {

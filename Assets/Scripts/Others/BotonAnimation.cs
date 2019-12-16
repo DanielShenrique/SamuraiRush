@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class BotonAniation : MonoBehaviour {
+public class BotonAnimation : MonoBehaviour {
+
+
     Animator animator;
+
+    [SerializeField]
+    private GameObject painelToSkin;
 
     void Start () {
         animator = GetComponent<Animator>();
@@ -15,31 +20,33 @@ public class BotonAniation : MonoBehaviour {
     {
         if (GameObject.FindGameObjectWithTag("Play"))
         {
-            StartCoroutine(AnimationTrasitorStart());
+            StartCoroutine(Animation());
+            SceneManager.LoadScene(1);
+            StopCoroutine(Animation());
         }
     }
     public void Quit()
     {
         if (GameObject.FindGameObjectWithTag("Exit"))
         {
-            StartCoroutine(QuitAimation());
+            StartCoroutine(Animation());
+            Application.Quit();
+            StopCoroutine(Animation());
         }
     }
 
-    public IEnumerator AnimationTrasitorStart()
+    public void GetSkin()
     {
-        animator.SetBool("Transição", true);
-        yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene(1);
-        StopCoroutine(AnimationTrasitorStart());
+        if (GameObject.FindGameObjectWithTag("GetSkin"))
+        {
+            painelToSkin.SetActive(true);
+        }
     }
 
-    public IEnumerator QuitAimation()
+    public IEnumerator Animation()
     {
         animator.SetBool("Transição", true);
         yield return new WaitForSeconds(2.0f);
-        Application.Quit();
-        StopCoroutine(QuitAimation());
     }
 
     public void RestartBoton()
@@ -52,7 +59,7 @@ public class BotonAniation : MonoBehaviour {
 
     public void ClearHighScore()
     {
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(1);
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Play
   - Exit
   - CoinText
+  - GetSkin
   layers:
   - Default
   - TransparentFX
