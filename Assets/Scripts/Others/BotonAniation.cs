@@ -45,9 +45,9 @@ public class BotonAniation : MonoBehaviour {
     public void RestartBoton()
     {
       if(GetComponent<ActPlayer>() == null)
-        {
+      {
             SceneManager.LoadScene(1);
-        }
+      }
     }
 
     public void ClearHighScore()

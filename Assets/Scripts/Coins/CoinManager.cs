@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoinManager : MonoBehaviour {
 
@@ -9,22 +10,19 @@ public class CoinManager : MonoBehaviour {
     private float speed;
     public bool canDestroy;
 
-    public int coinVal;
-
-    private Points p;
+    public int coin;
 
     private void Awake()
-    {
-        p = GameObject.FindGameObjectWithTag("Points").GetComponent<Points>();
+    { 
+
     }
 
     void Start()
     {
-        coinVal = 1;
+        coin = 0;
 
         speed = Random.Range(5f, 10f);
 
-        ValueCoin();
     }
 
     void Update()
@@ -40,20 +38,9 @@ public class CoinManager : MonoBehaviour {
         }
     }
 
-    public void ValueCoin()
+    public void GetCoin()
     {
-        if (p.num >= 2000 && p.num < 4000)
-        {
-            coinVal += coinVal;
-        }
-        if (p.num >= 4000 && p.num < 6000)
-        {
-            coinVal += coinVal;
-        }
-        if (p.num >= 6000 & p.num < 8000)
-        {
-            coinVal += coinVal;
-        }
+        coin += 10;
     }
 
     IEnumerator Patterns()

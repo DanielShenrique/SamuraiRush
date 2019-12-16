@@ -18,6 +18,9 @@ public class ActPlayer : MonoBehaviour
 
     private Points point;
 
+    [SerializeField]
+    private CoinManager coinM;
+
     public GameObject MenuScored;
     public GameObject HighScored;
     public GameObject Restart;
@@ -44,7 +47,7 @@ public class ActPlayer : MonoBehaviour
 
 		switch (state)
 		{
-			case "up":
+            case "up":
 				if (transform.position.y < 0.5f)
 				{
 					transform.position = new Vector2(transform.position.x, transform.position.y + 0.32f);
@@ -121,7 +124,6 @@ public class ActPlayer : MonoBehaviour
 
     }
 
-
     void MovementForPc()
     {
         if (canDash == true)
@@ -162,13 +164,13 @@ public class ActPlayer : MonoBehaviour
     {
         if (canJump)
         {
-                if (Input.mousePosition.x - mouse.x < divS)
-                {                
-                    animator.SetBool("isJumping", true);
-					state = "up";	
-                    canJump = false;
-                    
-                }         
+            if (Input.mousePosition.x - mouse.x < divS)
+            {
+                animator.SetBool("isJumping", true);
+                state = "up";
+                canJump = false;
+
+            }      
         }
     }
 
@@ -225,6 +227,7 @@ public class ActPlayer : MonoBehaviour
         }
         if (coll.gameObject.tag.Equals("Coin"))
         {
+            coinM.GetCoin();
             Destroy(coll.gameObject);
         }
     }
