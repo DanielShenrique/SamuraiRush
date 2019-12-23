@@ -41,6 +41,11 @@ public class CoinManager : MonoBehaviour {
     public void GetCoin()
     {
         coin += 10;
+
+        CoinOnMainMenu.coins = coin;
+        Debug.Log(CoinOnMainMenu.coins);
+        PlayerPrefs.SetInt("numCoins", CoinOnMainMenu.coins);
+
     }
 
     IEnumerator Patterns()
